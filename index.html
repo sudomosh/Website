@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Islamic Psychology for Women</title>
+  <style>
+    :root {
+      --primary: #7b5ea7;      /* lavender */
+      --secondary: #1f1b2e;    /* deep night */
+      --bg: #f6f4fa;           /* soft lilac */
+      --card-bg: #ffffff;
+      --text: #2b2b2b;
+    }
+
+    body.dark {
+      --bg: #14121c;
+      --card-bg: #1e1b2a;
+      --text: #e6e4f0;
+      --secondary: #0f0d16;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    header {
+      background: linear-gradient(135deg, #7b5ea7, #a48bc9);
+      color: white;
+      padding: 80px 20px 70px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    section {
+      padding: clamp(40px, 6vw, 70px) 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    section p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 1.05rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 28px 25px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 14px 30px;
+      border-radius: 999px;
+      text-decoration: none;
+      margin-top: 25px;
+      font-size: 1rem;
+    }
+
+    .button:hover {
+      background: #5a4060;
+    }
+
+    footer {
+      background: var(--secondary);
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      font-size: 0.95rem;
+    }
+
+    /* Mobile-specific tweaks */
+    @media (max-width: 480px) {
+      header {
+        padding: 55px 15px;
+      }
+
+      .card {
+        padding: 22px 20px;
+      }
+
+      section p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+  <h1>Islamic Psychology for Women</h1>
+  <p>Healing the heart through Qur’an, Sunnah, and psychology</p>
+  <a href="#contact" class="button">Join the Journey</a>
+  <style>
+    #themeToggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: white;
+      backdrop-filter: blur(6px);
+    }
+  </style>
+</header>
+
+<section>
+  <h2>About This Space</h2>
+  <p>
+    This platform is dedicated to Muslim women seeking emotional healing, self-growth, and
+    mental well-being through an Islamic lens. We combine psychology with Qur’anic wisdom,
+    prophetic guidance, and spiritual reflection.
+  </p>
+</section>
+
+<section>
+  <h2>What We Talk About</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>🌿 Emotional Healing</h3>
+      <p>Trauma, anxiety, sadness, and finding peace with Allah.</p>
+    </div>
+    <div class="card">
+      <h3>🧠 Islamic Psychology</h3>
+      <p>Nafs, qalb, ruh, attachment, boundaries, and self-worth.</p>
+    </div>
+    <div class="card">
+      <h3>🤍 Women-Centered Growth</h3>
+      <p>Identity, relationships, marriage, self-love, and healing cycles.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>From Instagram to Deeper Healing</h2>
+  <p>
+    If you found comfort through our Instagram content, this website is where we go deeper —
+    long-form reflections, guided healing, and future resources like courses and journals.
+  </p>
+</section>
+
+<section id="contact">
+  <h2>Stay Connected</h2>
+  <p>Follow us on Instagram and be part of a safe, faith-centered healing community.</p>
+  <a href="#" class="button">Instagram Page</a>
+</section>
+
+<footer>
+  <p>© 2026 Islamic Psychology for Women · Built with intention & ihsaan</p>
+</footer>
+
+<script>
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.length > 1) {
+        e.preventDefault();
+        document.querySelector(targetId).scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Reveal on scroll using Intersection Observer
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('section, .card').forEach(el => {
+    el.classList.add('hidden');
+    observer.observe(el);
+  });
+
+  // Dynamic year in footer
+  const footer = document.querySelector('footer p');
+  footer.innerHTML = `© ${new Date().getFullYear()} Islamic Psychology for Women · Built with intention & ihsaan`;
+
+  // Instagram button placeholder interaction
+  // Theme toggle (light / night)
+  const toggle = document.getElementById('themeToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  });
+
+  const instaBtn = document.querySelector('#contact .button');
+  instaBtn.addEventListener('click', e => {
+    e.preventDefault();
+    alert('Instagram link will be added soon ✨');
+  });
+</script>
+
+<style>
+  /* Animation helpers */
+  .hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+</body>
+</html>
