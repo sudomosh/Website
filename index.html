@@ -5,7 +5,6 @@
   <title>Islamic Psychology for Women</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Inspired by Shaha template -->
   <style>
     :root {
       --primary: #7b5ea7;
@@ -13,6 +12,7 @@
       --bg: #f6f4fa;
       --card: #ffffff;
       --text: #2b2b2b;
+      --accent: #e8def6;
     }
 
     body.dark {
@@ -20,11 +20,10 @@
       --card: #1e1b2a;
       --text: #e6e4f0;
       --secondary: #0f0d16;
+      --accent: #2a243d;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -66,7 +65,6 @@
       color: #fff;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 1rem;
     }
 
     #toggle {
@@ -107,11 +105,26 @@
       padding: 35px;
       border-radius: 24px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
+    /* 🌙 Hadith of the Day */
+    .hadith-box {
+      background: var(--accent);
+      padding: 45px 35px;
+      border-radius: 30px;
+      font-style: italic;
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 40px auto 0;
+      position: relative;
+    }
+
+    .hadith-box span {
+      display: block;
+      margin-top: 15px;
+      font-style: normal;
+      font-weight: 600;
+      opacity: 0.8;
     }
 
     footer {
@@ -142,42 +155,39 @@
   <div>
     <h1>Islamic Psychology for Women</h1>
     <p>Healing the heart through Qur’an, Sunnah, and psychology</p>
-    <a href="#journey" class="btn">Begin Your Healing</a>
+    <a href="#hadith" class="btn">Daily Reflection</a>
   </div>
 </header>
 
-<section id="journey" class="hidden">
+<section class="hidden">
   <h2>About This Space</h2>
   <p>
-    This is a gentle, faith-centered space for Muslim women seeking emotional healing,
-    self-understanding, and inner peace through an Islamic psychological lens.
+    A gentle, faith-centered space for Muslim women seeking emotional healing,
+    self-understanding, and inner peace.
   </p>
+</section>
+
+<!-- 🌙 Hadith of the Day -->
+<section id="hadith" class="hidden">
+  <h2>Hadith of the Day</h2>
+  <div class="hadith-box" id="hadithBox">
+    <!-- Injected by JS -->
+  </div>
 </section>
 
 <section class="hidden">
   <h2>What We Explore</h2>
   <div class="grid">
     <div class="card hidden">
-      <h3>🌿 Emotional Healing</h3>
-      <p>Anxiety, grief, trauma, and finding sakinah with Allah.</p>
+      🌿 Emotional healing & sakinah
     </div>
     <div class="card hidden">
-      <h3>🧠 Islamic Psychology</h3>
-      <p>Nafs, qalb, ruh, attachment wounds, and self-worth.</p>
+      🧠 Nafs, qalb & inner struggles
     </div>
     <div class="card hidden">
-      <h3>🤍 Women-Centered Growth</h3>
-      <p>Identity, boundaries, marriage, femininity, and healing cycles.</p>
+      🤍 Women-centered growth
     </div>
   </div>
-</section>
-
-<section class="hidden">
-  <h2>From Instagram to Deeper Healing</h2>
-  <p>
-    Instagram is where the reminders begin.  
-    This website is where reflection deepens and healing unfolds.
-  </p>
 </section>
 
 <section class="hidden">
@@ -194,14 +204,14 @@
 </footer>
 
 <script>
-  // Dark mode
+  // 🌙 Dark mode
   const toggle = document.getElementById('toggle');
   toggle.onclick = () => {
     document.body.classList.toggle('dark');
     toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
   };
 
-  // Reveal on scroll
+  // ✨ Reveal on scroll
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) e.target.classList.add('show');
@@ -210,9 +220,31 @@
 
   document.querySelectorAll('.hidden').forEach(el => obs.observe(el));
 
-  // Footer year
+  // 📅 Footer year
   document.getElementById('year').innerText =
     `© ${new Date().getFullYear()} Islamic Psychology for Women · Built with intention & ihsaan`;
+
+  // 📖 Hadith of the Day (static rotation)
+  const hadiths = [
+    {
+      text: "The strong person is not the one who overpowers others, but the one who controls herself when angry.",
+      source: "Sahih al-Bukhari & Muslim"
+    },
+    {
+      text: "Allah is gentle and loves gentleness in all matters.",
+      source: "Sahih Muslim"
+    },
+    {
+      text: "Whoever relieves a believer’s distress, Allah will relieve their distress on the Day of Resurrection.",
+      source: "Sahih Muslim"
+    }
+  ];
+
+  const today = new Date().getDate() % hadiths.length;
+  const h = hadiths[today];
+
+  document.getElementById('hadithBox').innerHTML =
+    `“${h.text}”<span>— ${h.source}</span>`;
 </script>
 
 </body>
